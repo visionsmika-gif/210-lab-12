@@ -55,7 +55,7 @@ int main() {
 	cout << "Prices sorted from lowest to highest:\n";
 	sort(prices.begin(), prices.end());
 	for (double val : prices) {
-		cout << "$" << val << " ";
+		cout << "$" << val << "  ";
 	}
 	cout << "\n\n";
 
@@ -63,7 +63,7 @@ int main() {
 	cout << "Prices sorted from highest to lowest:\n";
 	sort(prices.rbegin(), prices.rend());
 	for (double val : prices) {
-		cout << "$" << val << " ";
+		cout << "$" << val << "  ";
 	}
 	cout << "\n\n";
 
@@ -74,13 +74,25 @@ int main() {
 	it = find(prices.begin(), prices.end(), target);
 	
 	if (it != prices.end()) {
-		cout << "An item with a price of $" << target << " was found in position " << it - prices.begin() << ".\n";
+		cout << "An item with a price of $" << target << " was found in position " << it - prices.begin() << ".\n\n";
 	}
 	else {
-		cout << "An item with a price of $" << target << "was not found.\n";
+		cout << "An item with a price of $" << target << "was not found.\n\n";
 	}
 
-	// Use swap array
+	// Create a new array to swap with
+	array<double, SIZE> otherArray;
+	for (int i = 0; i < SIZE; ++i) {
+		otherArray[i] = i;
+	}
+
+	// Swap the arrays
+	prices.swap(otherArray);
+	cout << "After swapping with another array, the prices are now:\n";
+	for (double val : prices) {
+		cout << "$" << val << "  ";
+	}
+	cout << "\n";
 
 	return 0;
 }
