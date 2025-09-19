@@ -1,13 +1,12 @@
-// Program that exercises STD::array functions
-// Real-world simulation of something
-// Requirements: use STD::array, have external data file with at least 30 elements, read the data into array, use a large variety of array member functions
+// COMSC-210 | Lab 11 | Mika Aquino
+// IDE used: Visual Studio 2022
 
 #include <iostream>
 #include <array>
 #include <fstream>
 #include <iomanip>
-#include <algorithm> // for sort() and find()
-#include <numeric> // for accumulate()
+#include <algorithm> // For sort() and find()
+#include <numeric> // For accumulate()
 
 using namespace std;
 
@@ -49,7 +48,7 @@ int main() {
 	cout << "The cheapest item costs $" << *min_element(prices.begin(), prices.end()) << ".\n\n";
 	
 	// Find the sum of the array
-	cout << "The sum of the array is $" << accumulate(prices.begin(), prices.end(), 0.0) << ".\n\n";
+	cout << "The sum of the prices is $" << accumulate(prices.begin(), prices.end(), 0.0) << ".\n\n";
 
 	// Use iterators to sort
 	cout << "Prices sorted from lowest to highest:\n";
@@ -69,15 +68,15 @@ int main() {
 
 	// Find an element
 	double target = 81.20;
-	cout << "Finding an item with the price of $" << target << "...\n";
-	array<double, SIZE>::iterator it; // iterator for found element
+	cout << "Finding an item with a price of $" << target << "...\n";
+	array<double, SIZE>::iterator it; // Iterator for found element
 	it = find(prices.begin(), prices.end(), target);
 	
 	if (it != prices.end()) {
-		cout << "An item with a price of $" << target << " was found in position " << it - prices.begin() << ".\n\n";
+		cout << "An item with a price of $" << target << " was found at index " << it - prices.begin() << ".\n\n";
 	}
 	else {
-		cout << "An item with a price of $" << target << "was not found.\n\n";
+		cout << "An item with a price of $" << target << " was not found.\n\n";
 	}
 
 	// Create a new array to swap with
