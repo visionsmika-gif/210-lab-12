@@ -1,4 +1,4 @@
-// COMSC-210 | Lab 11 | Mika Aquino
+// COMSC-210 | Lab 12 | Mika Aquino
 // IDE used: Visual Studio 2022
 
 #include <iostream>
@@ -15,7 +15,7 @@ int main() {
 	array<double, SIZE> prices;
 	const string FILE_NAME = "prices.txt";
 	ifstream inputFile(FILE_NAME);
-	const int CENT_DIGITS = 2; // Used for setprecision() to display cents
+	const int CENT_DIGITS = 2; // Used for setprecision() to display cents properly
 
 	// Ensure that the file is open
 	if (!inputFile) {
