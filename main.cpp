@@ -35,19 +35,21 @@ int main() {
 	cout << fixed << setprecision(CENT_DIGITS);
 
 	// Use size() member function
-	cout << "The inventory contains a list of " << prices.size() << " prices.\n";
+	cout << "The inventory contains a list of " << prices.size() << " prices.\n\n";
 
 	// Use empty() member function
-	cout << "The list of prices is " << (prices.empty() ? "empty" : "not empty") << ".\n";
+	cout << "The list of prices is " << (prices.empty() ? "empty" : "not empty") << ".\n\n";
 
 	// Use front() and back() member functions
-	cout << "The price of the first item is $" << prices.front() << ".\n";
-	cout << "The price of the last item is $" << prices.back() << ".\n";
+	cout << "The price of the first item is $" << prices.front() << ".\n\n";
+	cout << "The price of the last item is $" << prices.back() << ".\n\n";
 
-	// Find the maximum, minimum, and sum of the array
-	cout << "The most expensive item costs $" << *max_element(prices.begin(), prices.end()) << ".\n";
-	cout << "The cheapest item costs $" << *min_element(prices.begin(), prices.end()) << ".\n";
-	cout << "The sum of the array is $" << accumulate(prices.begin(), prices.end(), 0.0) << ".\n";
+	// Find the maximum and minimum of the array
+	cout << "The most expensive item costs $" << *max_element(prices.begin(), prices.end()) << ".\n\n";
+	cout << "The cheapest item costs $" << *min_element(prices.begin(), prices.end()) << ".\n\n";
+	
+	// Find the sum of the array
+	cout << "The sum of the array is $" << accumulate(prices.begin(), prices.end(), 0.0) << ".\n\n";
 
 	// Use iterators to sort
 	cout << "Prices sorted from lowest to highest:\n";
@@ -55,14 +57,30 @@ int main() {
 	for (double val : prices) {
 		cout << "$" << val << " ";
 	}
-	cout << "\n";
+	cout << "\n\n";
 
 	// Use reverse iterators to sort in reverse
+	cout << "Prices sorted from highest to lowest:\n";
 	sort(prices.rbegin(), prices.rend());
 	for (double val : prices) {
 		cout << "$" << val << " ";
 	}
-	cout << "\n";
+	cout << "\n\n";
+
+	// Find an element
+	double target = 81.20;
+	cout << "Finding an item with the price of $" << target << "...\n";
+	array<double, SIZE>::iterator it; // iterator for found element
+	it = find(prices.begin(), prices.end(), target);
+	
+	if (it != prices.end()) {
+		cout << "An item with a price of $" << target << " was found in position " << it - prices.begin() << ".\n";
+	}
+	else {
+		cout << "An item with a price of $" << target << "was not found.\n";
+	}
+
+	// Use swap array
 
 	return 0;
 }
